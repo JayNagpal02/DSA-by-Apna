@@ -158,8 +158,17 @@ public class Recursion2 {
     // print keypad combination
     public static String[] keypad = { ".", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz" };
 
+    // time complexity is => O(4^n)
     public static void printKeypadCombination(String str, int idx, String combination) {
-
+        if (idx == str.length()) {
+            System.out.println(combination);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        String mapping = keypad[currChar - '0'];
+        for (int i = 0; i < mapping.length(); i++) {
+            printKeypadCombination(str, idx + 1, combination + mapping.charAt(i));
+        }
     }
 
     public static void main(String[] args) {
@@ -189,8 +198,11 @@ public class Recursion2 {
         // String src5 = "abc";
         // subsequences(src5, 0, "");
 
-        String src6 = "aaa";
-        HashSet<String> set = new HashSet<>();
-        uniqueSubsequences(src6, 0, "", set);
+        // String src6 = "aaa";
+        // HashSet<String> set = new HashSet<>();
+        // uniqueSubsequences(src6, 0, "", set);
+
+        String src7 = "23";
+        printKeypadCombination(src7, 0, "");
     }
 }
