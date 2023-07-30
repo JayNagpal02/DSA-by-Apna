@@ -12,6 +12,11 @@ public class MergeSort {
         int rightArrIndex = mid + 1;
         int mergedArrIndex = 0;
         while (leftArrIndex <= mid && rightArrIndex <= end) {
+            /**
+             * for ascending => if (arr[leftArrIndex] <= arr[rightArrIndex])
+             * and
+             * for descending => if (arr[leftArrIndex] > arr[rightArrIndex])
+             */
             if (arr[leftArrIndex] <= arr[rightArrIndex]) {
                 merged[mergedArrIndex++] = arr[leftArrIndex++];
             } else {
@@ -39,13 +44,13 @@ public class MergeSort {
         conquer(arr, start, mid, end);
     }
 
-    public static void ascendingMergeSort(int[] arr) {
+    public static void mergeSort(int[] arr) {
         divide(arr, 0, arr.length - 1);
     }
 
     public static void main(String[] args) {
         int[] arr = { 6, 3, 9, 5, 2, 8 };
-        ascendingMergeSort(arr);
+        mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
